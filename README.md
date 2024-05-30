@@ -7,7 +7,7 @@ Copy and edit env
 ```
 cp .env.example .env
 vi .env
-``
+```
 
 Docker compose up
 ```
