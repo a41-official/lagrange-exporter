@@ -10,7 +10,13 @@ services:
       - "8083:8083"
     volumes:
       - ./nginx.conf.template:/etc/nginx/templates/default.conf.template:ro
+    networks:
+      - lagrange_default
     environment:
       - BASE_CONTAINER_NAME=${BASE_CONTAINER_NAME}
       - OPTIMISM_CONTAINER_NAME=${OPTIMISM_CONTAINER_NAME}
       - ARBITRUM_CONTAINER_NAME=${ARBITRUM_CONTAINER_NAME}
+
+networks:
+  lagrange_default:
+    external: true
