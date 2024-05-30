@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: lagrange_exporter
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
+    volumes:
+      - ./nginx.conf.template:/etc/nginx/templates/default.conf.template:ro
+    environment:
+      - BASE_CONTAINER_NAME=${BASE_CONTAINER_NAME}
+      - OPTIMISM_CONTAINER_NAME=${OPTIMISM_CONTAINER_NAME}
+      - ARBITRUM_CONTAINER_NAME=${ARBITRUM_CONTAINER_NAME}
